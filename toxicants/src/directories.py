@@ -15,8 +15,7 @@ class Directories:
     @staticmethod
     def cleanup(directories_: list):
         """
-        Clean-up
-
+        Deletes a directory, after deleting its contents
         :param directories_: A list of directories
         :return:
         """
@@ -32,20 +31,18 @@ class Directories:
                 raise Exception('Unable to delete all files within path {}'.format(path))
 
             paths_ = [os.removedirs(os.path.join(base, directory))
-                            for base, directories, files in os.walk(path, topdown=False)
-                            for directory in directories if os.path.exists(os.path.join(base, directory))]
+                      for base, directories, files in os.walk(path, topdown=False)
+                      for directory in directories if os.path.exists(os.path.join(base, directory))]
             if any(paths_):
                 raise Exception('Unable to delete all directories within path {}'.format(path))
 
             if os.path.exists(path):
                 os.rmdir(path)
 
-
     @staticmethod
     def create(directories_: list):
         """
-        Create
-
+        For creating directories
         :param directories_: A list of directories
         :return:
         """
