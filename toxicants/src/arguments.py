@@ -1,9 +1,16 @@
-import requests
+"""
+Module arguments:
+    Parses the package's input argument, which is a YAML URL, and extracts the contents of the YAML
+"""
 import collections
+import requests
 import yaml
 
 
 class Arguments:
+    """
+    Class Arguments
+    """
 
     def __init__(self):
         """
@@ -27,7 +34,7 @@ class Arguments:
         return req
 
     @staticmethod
-    def parameters(elements: requests.models.Response) -> (str, dict, collections.namedtuple):
+    def parameters(elements: requests.models.Response) -> collections.namedtuple:
         """
         :param elements: The content of the input YAML file
         :return:
