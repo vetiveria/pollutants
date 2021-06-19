@@ -11,7 +11,8 @@ def main():
     directories.cleanup(directories_=[configurations.warehouse])
     directories.create(directories_=[configurations.warehouse])
 
-    logger.info('\n{}'.format('in'))
+    logger.info('\n{}'.format(parameters.data_url))
+    logger.info('\n{}'.format(parameters.schema_url))
 
 
 if __name__ == '__main__':
@@ -41,6 +42,8 @@ if __name__ == '__main__':
     # Hence
     configurations = config.Config()
     directories = toxicants.src.directories.Directories()
+
+    main()
 
 
 
