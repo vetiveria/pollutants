@@ -11,8 +11,10 @@ def main():
     directories.cleanup(directories_=[configurations.warehouse])
     directories.create(directories_=[configurations.warehouse])
 
-    logger.info('\n{}'.format(parameters.data_url))
-    logger.info('\n{}'.format(parameters.schema_url))
+    # Schema
+    usecols, dtype = readschema.exc(schema_url=parameters.schema_url)
+    logger.info('\nFields of interest: {}'.format(usecols))
+    logger.info('\nThe fields & their data type: {}'.format(dtype))
 
 
 if __name__ == '__main__':
@@ -30,6 +32,7 @@ if __name__ == '__main__':
     import config
     import toxicants.src.arguments
     import toxicants.src.directories
+    import toxicants.algorithms.readschema
 
     # Arguments
     arguments = toxicants.src.arguments.Arguments()
@@ -42,6 +45,7 @@ if __name__ == '__main__':
     # Hence
     configurations = config.Config()
     directories = toxicants.src.directories.Directories()
+    readschema = toxicants.algorithms.readschema.ReadSchema()
 
     main()
 
