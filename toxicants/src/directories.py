@@ -26,14 +26,20 @@ class Directories:
             if not os.path.exists(path):
                 continue
 
-            [os.remove(os.path.join(base, file))
-             for base, directories, files in os.walk(path)
-             for file in files]
+            files_ = [os.remove(os.path.join(base, file))
+                      for base, directories, files in os.walk(path) for file in files]
+            if any(files_):
+                raise Exception('Unable to delete all files within path {}'.format(path))
 
-            [os.removedirs(os.path.join(base, directory))
-             for base, directories, files in os.walk(path, topdown=False)
-             for directory in directories
-             if os.path.exists(os.path.join(base, directory))]
+            paths_ = [os.removedirs(os.path.join(base, directory))
+                            for base, directories, files in os.walk(path, topdown=False)
+                            for directory in directories if os.path.exists(os.path.join(base, directory))]
+            if any(paths_):
+                raise Exception('Unable to delete all directories within path {}'.format(path))
+
+            if os.path.exists(path):
+                os.rmdir(path)
+
 
     @staticmethod
     def create(directories_: list):
