@@ -1,25 +1,26 @@
 
 <br>
+<br>
 
-## Development Notes
+### Development Notes
 
 The developments notes.
 
-### Requirements
+**Requirements**
 
 ```shell
 pip freeze -r docs/filter.txt > requirements.txt
 ```
 
-### Style
+**Style**
 
 ```shell
 pylint --generate-rcfile > .pylintrc
 ```
 
-### Robustness
+**Robustness**
 
-**PyTest**: For example
+PyTest: For example
 
 ```shell
 	python -m pytest tests/src/test_...py 
@@ -27,7 +28,7 @@ pylint --generate-rcfile > .pylintrc
 
 <br>
 
-**Pylint**: For example
+Pylint: For example
 
 ```shell
 	python -m pylint --rcfile .pylintrc toxicants/src/...py
