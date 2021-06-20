@@ -1,6 +1,7 @@
 import os
 import sys
 import logging
+import collections
 
 import argparse
 
@@ -12,11 +13,18 @@ def main():
     directories.create(directories_=[configurations.warehouse])
 
     # Schema
-    usecols, dtype = readschema.exc(schema_url=parameters.schema_url)
+    usecols, dtype = read_schema.exc(schema_url=parameters.schema_url)
     logger.info('\nFields of interest: {}'.format(usecols))
     logger.info('\nThe fields & their data type: {}'.format(dtype))
 
     # Data
+    DataSpecifications = collections.namedtuple(typename='DataSpecifications', field_names=['data_url', 'usecols', 'dtype',
+                                                                                            'rename', 'dictionary_of_names'])
+    specifications = DataSpecifications._make((parameters.data_url, usecols, dtype, False, {}))
+
+    read_data = toxicants.algorithms.readdata.ReadData(specifications=specifications)
+    data = read_data.exc()
+    logger.info('\n{}'.format(data.head()))
 
 
 if __name__ == '__main__':
@@ -35,6 +43,7 @@ if __name__ == '__main__':
     import toxicants.src.arguments
     import toxicants.src.directories
     import toxicants.algorithms.readschema
+    import toxicants.algorithms.readdata
 
     # Arguments
     arguments = toxicants.src.arguments.Arguments()
@@ -47,10 +56,6 @@ if __name__ == '__main__':
     # Hence
     configurations = config.Config()
     directories = toxicants.src.directories.Directories()
-    readschema = toxicants.algorithms.readschema.ReadSchema()
+    read_schema = toxicants.algorithms.readschema.ReadSchema()
 
     main()
-
-
-
-
