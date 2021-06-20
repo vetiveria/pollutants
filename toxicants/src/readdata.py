@@ -45,7 +45,7 @@ class ReadData:
         :return:
         """
 
-        return blob.rename(columns=self.specifications.dictionar_of_names)
+        return blob.rename(columns=self.specifications.dictionary_of_names)
 
     def exc(self):
         """
