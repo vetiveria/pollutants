@@ -1,3 +1,7 @@
+"""
+Module readschema:
+    Reads the schema file of a data file
+"""
 import numpy as np
 import requests
 import json
@@ -6,6 +10,9 @@ import pandas as pd
 
 
 class ReadSchema:
+    """
+    Class ReadSchema
+    """
 
     def __init__(self):
         """
