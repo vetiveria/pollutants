@@ -7,28 +7,26 @@ import argparse
 
 
 def main():
-
     #  Prepare directories
     directories.cleanup(directories_=[configurations.warehouse])
     directories.create(directories_=[configurations.warehouse])
 
-    # Schema
+    # Schema attributes
     usecols, dtype = read_schema.exc(schema_url=parameters.schema_url)
-    logger.info('\nFields of interest: {}'.format(usecols))
-    logger.info('\nThe fields & their data type: {}'.format(dtype))
 
-    # Data
-    DataSpecifications = collections.namedtuple(typename='DataSpecifications', field_names=['data_url', 'usecols', 'dtype',
-                                                                                            'rename', 'dictionary_of_names'])
-    specifications = DataSpecifications._make((parameters.data_url, usecols, dtype, False, {}))
+    # Data specifications
+    DataSpecifications = collections.namedtuple(typename='DataSpecifications',
+                                                field_names=['data_url', 'usecols', 'dtype', 'rename', 'dictionary_of_names'])
+    specifications = DataSpecifications._make((parameters.data_url, usecols, dtype,
+                                               parameters.rename, parameters.dictionary_of_names))
 
+    # Hence, read the data
     read_data = toxicants.src.readdata.ReadData(specifications=specifications)
     data = read_data.exc()
     logger.info('\n{}'.format(data.head()))
 
 
 if __name__ == '__main__':
-
     # Preliminaries
     root = os.getcwd()
     sys.path.append(root)
