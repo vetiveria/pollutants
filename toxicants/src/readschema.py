@@ -2,11 +2,11 @@
 Module readschema:
     Reads the schema file of a data file
 """
-import numpy as np
-import requests
 import json
 
+import numpy as np
 import pandas as pd
+import requests
 
 
 class ReadSchema:
@@ -56,7 +56,7 @@ class ReadSchema:
         """
 
         usecols = blob.name.values
-        dtype = blob[['name', 'localtype']].set_index(keys='name', drop=False, inplace=False).\
+        dtype = blob[['name', 'localtype']].set_index(keys='name', drop=False, inplace=False). \
             to_dict(orient='dict')['localtype']
 
         return usecols, dtype
