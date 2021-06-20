@@ -45,10 +45,10 @@ class Arguments:
         # Are the URL strings valid?
         data_url = text['dataURL']
         assert requests.head(url=data_url).status_code == 200, "The YAML dataURL string  is invalid"
-
         schema_url = text['schemaURL']
         assert requests.head(url=schema_url).status_code == 200, "The YAML schemaURL string  is invalid"
 
+        # Field names
         rename = text['rename']
         assert isinstance(rename, bool), "The value of YAML parameter 'rename' must either be True or False"
 
