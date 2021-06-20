@@ -6,11 +6,15 @@
 
 The developments notes.
 
+<br>
+
 **Requirements**
 
 ```shell
 pip freeze -r docs/filter.txt > requirements.txt
 ```
+
+<br>
 
 **Style**
 
@@ -18,9 +22,11 @@ pip freeze -r docs/filter.txt > requirements.txt
 pylint --generate-rcfile > .pylintrc
 ```
 
+<br>
+
 **Robustness**
 
-PyTest: For example
+PyTest, e.g.,
 
 ```shell
 	python -m pytest tests/src/test_...py 
@@ -28,7 +34,7 @@ PyTest: For example
 
 <br>
 
-Pylint: For example
+Pylint, e.g.,
 
 ```shell
 	python -m pylint --rcfile .pylintrc toxicants/src/...py
