@@ -22,7 +22,7 @@ def main():
                                                                                             'rename', 'dictionary_of_names'])
     specifications = DataSpecifications._make((parameters.data_url, usecols, dtype, False, {}))
 
-    read_data = toxicants.algorithms.readdata.ReadData(specifications=specifications)
+    read_data = toxicants.src.readdata.ReadData(specifications=specifications)
     data = read_data.exc()
     logger.info('\n{}'.format(data.head()))
 
@@ -40,13 +40,13 @@ if __name__ == '__main__':
 
     # Libraries
     import config
-    import toxicants.src.arguments
-    import toxicants.src.directories
-    import toxicants.algorithms.readschema
-    import toxicants.algorithms.readdata
+    import toxicants.io.arguments
+    import toxicants.io.directories
+    import toxicants.src.readschema
+    import toxicants.src.readdata
 
     # Arguments
-    arguments = toxicants.src.arguments.Arguments()
+    arguments = toxicants.io.arguments.Arguments()
     parser = argparse.ArgumentParser()
     parser.add_argument('elements', type=arguments.url, help='The URL of a YAML of parameters; refer to the '
                                                              'README notes.  The argument parser returns a blob of elements')
@@ -55,7 +55,7 @@ if __name__ == '__main__':
 
     # Hence
     configurations = config.Config()
-    directories = toxicants.src.directories.Directories()
-    read_schema = toxicants.algorithms.readschema.ReadSchema()
+    directories = toxicants.io.directories.Directories()
+    read_schema = toxicants.src.readschema.ReadSchema()
 
     main()
