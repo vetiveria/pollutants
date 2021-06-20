@@ -49,6 +49,16 @@ class Arguments:
         schema_url = text['schemaURL']
         assert requests.head(url=schema_url).status_code == 200, "The YAML schemaURL string  is invalid"
 
+        rename = text['rename']
+        assert isinstance(rename, bool), "The value of YAML parameter 'rename' must either be True or False"
+
+        if rename:
+            dictionary_of_names = text['dictionaryOfNames']
+            assert isinstance(dictionary_of_names, dict), "A dictionary names, wherein the old name is the key and the new " \
+                                                          "name is the value, is required for renaming data fields"
+            assert len(dictionary_of_names) > 0, "The dictionary of names is empty"
+
+
         # Hence, add the URL strings to the data parameters collection
-        DataParameters = collections.namedtuple(typename='DataParameters', field_names=['data_url', 'schema_url'])
-        return DataParameters._make((text['dataURL'], text['schemaURL']))
+        DataParameters = collections.namedtuple(typename='DataParameters', field_names=['data_url', 'schema_url', 'rename', 'dictionary_of_names'])
+        return DataParameters._make((data_url, schema_url, rename, dictionary_of_names))
