@@ -16,6 +16,8 @@ def main():
     logger.info('\nFields of interest: {}'.format(usecols))
     logger.info('\nThe fields & their data type: {}'.format(dtype))
 
+    # Data
+
 
 if __name__ == '__main__':
 
