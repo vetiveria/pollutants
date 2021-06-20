@@ -29,7 +29,7 @@ pylint --generate-rcfile > .pylintrc
 PyTest, e.g.,
 
 ```shell
-	python -m pytest tests/src/test_...py 
+python -m pytest tests/src/test_...py 
 ```
 
 <br>
@@ -37,7 +37,7 @@ PyTest, e.g.,
 Pylint, e.g.,
 
 ```shell
-	python -m pylint --rcfile .pylintrc toxicants/src/...py
+python -m pylint --rcfile .pylintrc toxicants/src/...py
 ```
 
 <br>
