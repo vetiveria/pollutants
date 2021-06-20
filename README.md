@@ -1,46 +1,33 @@
-## Toxicants
-Testing
 
 <br>
-<br>
 
-### Development
+## Development Notes
 
 The developments notes.
 
-#### Requirements
+### Requirements
 
 ```shell
 pip freeze -r docs/filter.txt > requirements.txt
 ```
 
-<br>
-
-#### Style
+### Style
 
 ```shell
 pylint --generate-rcfile > .pylintrc
 ```
 
-<br>
+### Robustness
 
-#### Robustness
-
-**PyTest**
-
-Execution example:
+**PyTest**: For example
 
 ```shell
 	python -m pytest tests/src/test_...py 
 ```
 
+<br>
 
-**Pylint**
-
-* http://pylint.pycqa.org/en/latest/user_guide/run.html#command-line-options
-* https://pylint.readthedocs.io/en/latest/technical_reference/features.html
-
-Execution example:
+**Pylint**: For example
 
 ```shell
 	python -m pylint --rcfile .pylintrc toxicants/src/...py
@@ -51,10 +38,13 @@ Execution example:
 
 ### References
 
-* https://docs.python-requests.org/en/master/index.html
+* Requests
+  * https://docs.python-requests.org/en/master/index.html
+* Pylint    
+  * http://pylint.pycqa.org/en/latest/user_guide/run.html#command-line-options
+  * https://pylint.readthedocs.io/en/latest/technical_reference/features.html
 
 <br>
 <br>
 <br>
 <br>
-
