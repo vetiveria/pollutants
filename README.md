@@ -34,6 +34,14 @@ python -m pytest tests/src/test_...py
 
 <br>
 
+**PyTest & Coverage**
+
+```shell
+python -m pytest --cov toxicants/io tests/io
+```
+
+<br>
+
 **Pylint**
 
 ```shell
@@ -50,7 +58,14 @@ is preferred to
 logger.info('\n{}'.format(data.info()))
 ```
 
+<br>
 
+**flake8**
+
+```
+python -m flake8 --count --select=E9,F63,F7,F82 --show-source --statistics toxicants/...py
+python -m flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics toxicants/...py
+```
 
 <br>
 <br>
