@@ -7,6 +7,11 @@ import argparse
 
 
 def main():
+    """
+    Entry point
+    :return:
+    """
+
     #  Prepare directories
     directories.cleanup(directories_=[configurations.warehouse])
     directories.create(directories_=[configurations.warehouse])
@@ -23,7 +28,15 @@ def main():
     # Hence, read the data
     read_data = toxicants.src.readdata.ReadData(specifications=specifications)
     data = read_data.exc()
-    logger.info('\n{}'.format(data.head()))
+    logger.info('\n{}'.format(data.info()))
+
+    # Retain valid instances only
+    data = instances.exc(data=data.copy())
+    logger.info('\n{}'.format(data.info()))
+
+    # Save
+    data.to_csv(path_or_buf=os.path.join(configurations.warehouse, 'pollutants.csv'), header=True, index=False,
+                encoding='UTF-8')
 
 
 if __name__ == '__main__':
@@ -42,6 +55,7 @@ if __name__ == '__main__':
     import toxicants.io.directories
     import toxicants.src.readschema
     import toxicants.src.readdata
+    import toxicants.algorithms.instances
 
     # Arguments
     arguments = toxicants.io.arguments.Arguments()
@@ -55,5 +69,6 @@ if __name__ == '__main__':
     configurations = config.Config()
     directories = toxicants.io.directories.Directories()
     read_schema = toxicants.src.readschema.ReadSchema()
+    instances = toxicants.algorithms.instances.Instances()
 
     main()
