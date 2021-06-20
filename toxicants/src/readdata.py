@@ -33,8 +33,8 @@ class ReadData:
         try:
             data = pd.read_csv(filepath_or_buffer=self.specifications.data_url, header=0, usecols=self.specifications.usecols,
                                dtype=self.specifications.dtype, encoding='UTF-8')
-        except OSError as err:
-            raise Exception(err.strerror) in err
+        except FileNotFoundError as err:
+            raise Exception(err.strerror)
 
         return data
 
