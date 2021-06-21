@@ -22,8 +22,7 @@ is
 dataURL: 'https://.../chemicalsEnvirofacts.csv'
 schemaURL: 'https://.../chemicalsEnvirofacts.json'
 rename: True
-dictionaryOfNames: { 'TRI_CHEM_INFO.TRI_CHEM_ID': 'tri_chem_id', 
-                     'TRI_CHEM_INFO.CHEM_NAME': 'chem_name', ... }
+dictionaryOfNames: {'TRI_CHEM_INFO.TRI_CHEM_ID': 'tri_chem_id', ... }
 ````
 
 wherein ``dataURL`` is the URL of the data file, ``schemaURL`` is the URL of the correseponding schema file. The
