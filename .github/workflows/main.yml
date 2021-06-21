@@ -71,19 +71,20 @@ jobs:
                     printf "\n"
                     echo "============================= pylint session starts =============================="
                     printf "\n"
+                    printf "\nSECTION: toxicants/algorithms/\n\n"
                     printf "\ntoxicants/algorithms/instances.py"
                     pylint --rcfile .pylintrc toxicants/algorithms/instances.py
-                    printf "\ntoxicants/io/\n"
+                    printf "\nSECTION: toxicants/io/\n\n"
                     printf "toxicants/io/arguments.py"
                     pylint --rcfile .pylintrc toxicants/io/arguments.py
                     printf "toxicants/io/directories.py"
                     pylint --rcfile .pylintrc toxicants/io/directories.py
-                    printf "\ntoxicants/src/\n"
+                    printf "\nSECTION: toxicants/src/\n\n"
                     printf "toxicants/src/readdata.py"
                     pylint --rcfile .pylintrc toxicants/src/readdata.py
                     printf "toxicants/src/readschema.py"
                     pylint --rcfile .pylintrc toxicants/src/readschema.py
-                    printf "\ntoxicants/main.py"
+                    printf "\nSECTION: toxicants/main.py"
                     pylint --rcfile .pylintrc toxicants/main.py
 
             -   name: Test with pytest
