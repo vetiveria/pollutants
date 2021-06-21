@@ -29,6 +29,8 @@ This is one of a collection of modules that uses GitHub Actions for continuous i
 [main.yml](./.github/workflows/main.yml) outlines all the validations & tests that must be conducted ``on git push``. In brief,
 the tools used - and a few command examples - are
 
+<br>
+
 &nbsp; &nbsp; **PyTest**
 ```shell
 python -m pytest tests/io/test_directories.py
@@ -51,7 +53,7 @@ python -m flake8 --count --exit-zero --max-complexity=10 --max-line-length=127
 
 <br>
 
-In relation to Pylint, note that
+**In relation to Pylint**, note that
 
 ```
 logger.info('\n %s', data.info())
