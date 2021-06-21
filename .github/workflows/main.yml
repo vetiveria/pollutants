@@ -33,9 +33,10 @@ jobs:
                     # Exit-zero treats all errors as warnings.
                     # The GitHub editor is 127 chars wide.
                     printf "\n"
+                    echo "LOGIC"
                     echo "Issues in relation to logic (F7), syntax (Python E9, Flake F7), mathematical
                     formulae symbols (F63), undefined variable names (F82):"
-                    echo "toxicants/algorithms ->"
+                    echo "\ntoxicants/algorithms ->"
                     printf "instances.py: "
                     flake8 --count --select=E9,F63,F7,F82 --show-source --statistics toxicants/algorithms/instances.py
                     printf "\ntoxicants/io ->\n"
@@ -49,7 +50,7 @@ jobs:
                     printf "readschema.py: "
                     flake8 --count --select=E9,F63,F7,F82 --show-source --statistics toxicants/src/readschema.py
                     printf "\n"
-                    echo "Complexity issues:"
+                    echo "COMPLEXITY"
                     printf "\ntoxicants/algorithms ->\n"
                     printf "instances.py: "
                     python -m flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics toxicants/algorithms/instances.py
@@ -70,11 +71,17 @@ jobs:
                     printf "\n"
                     echo "============================= pylint session starts =============================="
                     printf "\n"
+                    printf "\ntoxicants/algorithms/instances.py\n"
                     pylint --rcfile .pylintrc toxicants/algorithms/instances.py
+                    printf "\ntoxicants/io/arguments.py\n"
                     pylint --rcfile .pylintrc toxicants/io/arguments.py
+                    printf "\ntoxicants/io/directories.py\n"
                     pylint --rcfile .pylintrc toxicants/io/directories.py
+                    printf "\ntoxicants/src/readdata.py\n"
                     pylint --rcfile .pylintrc toxicants/src/readdata.py
+                    printf "\ntoxicants/src/readschema.py\n"
                     pylint --rcfile .pylintrc toxicants/src/readschema.py
+                    printf "\ntoxicants/main.py\n"
                     pylint --rcfile .pylintrc toxicants/main.py
 
             -   name: Test with pytest
