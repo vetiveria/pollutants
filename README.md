@@ -7,8 +7,7 @@ _Master_<br>
 <br>
 <br>
 
-Focuses on the [Toxics Release Inventory (TRI)](https://www.epa.gov/enviro/tri-overview) pollutants data; ensuring the consistency of its field values. The original copies are stored [within a greyhypotheses repository](https://github.
-com/miscellane/hub/tree/master/data/countries/us/environment/toxins)
+Focuses on the [Toxics Release Inventory (TRI)](https://www.epa.gov/enviro/tri-overview) pollutants data; ensuring the consistency of its field values. The original copies are stored [within a greyhypotheses repository](https://github.com/miscellane/hub/tree/master/data/countries/us/environment/toxins)
 
 <br>
 <br>
@@ -23,7 +22,8 @@ is
 dataURL: 'https://.../chemicalsEnvirofacts.csv'
 schemaURL: 'https://.../chemicalsEnvirofacts.json'
 rename: True
-dictionaryOfNames: { 'TRI_CHEM_INFO.TRI_CHEM_ID': 'tri_chem_id', 'TRI_CHEM_INFO.CHEM_NAME': 'chem_name', ... }
+dictionaryOfNames: { 'TRI_CHEM_INFO.TRI_CHEM_ID': 'tri_chem_id', 
+                     'TRI_CHEM_INFO.CHEM_NAME': 'chem_name', ... }
 ````
 
 wherein ``dataURL`` is the URL of the data file, ``schemaURL`` is the URL of the correseponding schema file. The
