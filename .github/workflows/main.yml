@@ -35,8 +35,8 @@ jobs:
                     printf "\n"
                     echo "LOGIC"
                     echo "Issues in relation to logic (F7), syntax (Python E9, Flake F7), mathematical
-                    formulae symbols (F63), undefined variable names (F82):"
-                    printf "\ntoxicants/algorithms ->"
+                    formulae symbols (F63), undefined variable names (F82)"
+                    printf "\ntoxicants/algorithms ->\n"
                     printf "instances.py: "
                     flake8 --count --select=E9,F63,F7,F82 --show-source --statistics toxicants/algorithms/instances.py
                     printf "\ntoxicants/io ->\n"
@@ -49,7 +49,7 @@ jobs:
                     flake8 --count --select=E9,F63,F7,F82 --show-source --statistics toxicants/src/readdata.py
                     printf "readschema.py: "
                     flake8 --count --select=E9,F63,F7,F82 --show-source --statistics toxicants/src/readschema.py
-                    printf "\n\n"
+                    printf "\n\n\n"
                     echo "COMPLEXITY"
                     printf "\ntoxicants/algorithms ->\n"
                     printf "instances.py: "
@@ -73,13 +73,15 @@ jobs:
                     printf "\n"
                     printf "\ntoxicants/algorithms/instances.py"
                     pylint --rcfile .pylintrc toxicants/algorithms/instances.py
-                    printf "\ntoxicants/io/arguments.py"
+                    printf "\ntoxicants/io/\n"
+                    printf "toxicants/io/arguments.py"
                     pylint --rcfile .pylintrc toxicants/io/arguments.py
-                    printf "\ntoxicants/io/directories.py"
+                    printf "toxicants/io/directories.py"
                     pylint --rcfile .pylintrc toxicants/io/directories.py
-                    printf "\ntoxicants/src/readdata.py"
+                    printf "\ntoxicants/src/\n"
+                    printf "toxicants/src/readdata.py"
                     pylint --rcfile .pylintrc toxicants/src/readdata.py
-                    printf "\ntoxicants/src/readschema.py"
+                    printf "toxicants/src/readschema.py"
                     pylint --rcfile .pylintrc toxicants/src/readschema.py
                     printf "\ntoxicants/main.py"
                     pylint --rcfile .pylintrc toxicants/main.py
