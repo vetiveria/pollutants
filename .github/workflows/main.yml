@@ -38,27 +38,27 @@ jobs:
                     echo "toxicants/algorithms ->"
                     printf "instances.py: "
                     flake8 --count --select=E9,F63,F7,F82 --show-source --statistics toxicants/algorithms/instances.py
-                    echo "\ntoxicants/io ->"
+                    printf "\ntoxicants/io ->\n"
                     printf "arguments.py: "
                     flake8 --count --select=E9,F63,F7,F82 --show-source --statistics toxicants/io/arguments.py
                     printf "directories.py: "
                     flake8 --count --select=E9,F63,F7,F82 --show-source --statistics toxicants/io/directories.py
-                    echo "toxicants/src ->"
+                    printf "\ntoxicants/src ->\n"
                     printf "readdata.py: "
                     flake8 --count --select=E9,F63,F7,F82 --show-source --statistics toxicants/src/readdata.py
                     printf "readschema.py: "
                     flake8 --count --select=E9,F63,F7,F82 --show-source --statistics toxicants/src/readschema.py
                     printf "\n"
                     echo "Complexity issues:"
-                    echo "toxicants/algorithms ->"
+                    printf "\ntoxicants/algorithms ->\n"
                     printf "instances.py: "
                     python -m flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics toxicants/algorithms/instances.py
-                    echo "toxicants/io ->"
+                    printf "\ntoxicants/io ->\n"
                     printf "arguments.py: "
                     flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics toxicants/io/arguments.py
                     printf "directories.py: "
                     flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics toxicants/io/directories.py
-                    echo "toxicants/src ->"
+                    printf "\ntoxicants/src ->\n"
                     printf "readdata.py: "
                     flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics toxicants/src/readdata.py
                     printf "readschema.py: "
