@@ -36,7 +36,7 @@ jobs:
                     echo "LOGIC"
                     echo "Issues in relation to logic (F7), syntax (Python E9, Flake F7), mathematical
                     formulae symbols (F63), undefined variable names (F82):"
-                    echo "\ntoxicants/algorithms ->"
+                    printf "\ntoxicants/algorithms ->"
                     printf "instances.py: "
                     flake8 --count --select=E9,F63,F7,F82 --show-source --statistics toxicants/algorithms/instances.py
                     printf "\ntoxicants/io ->\n"
@@ -49,7 +49,7 @@ jobs:
                     flake8 --count --select=E9,F63,F7,F82 --show-source --statistics toxicants/src/readdata.py
                     printf "readschema.py: "
                     flake8 --count --select=E9,F63,F7,F82 --show-source --statistics toxicants/src/readschema.py
-                    printf "\n"
+                    printf "\n\n"
                     echo "COMPLEXITY"
                     printf "\ntoxicants/algorithms ->\n"
                     printf "instances.py: "
@@ -71,17 +71,17 @@ jobs:
                     printf "\n"
                     echo "============================= pylint session starts =============================="
                     printf "\n"
-                    printf "\ntoxicants/algorithms/instances.py\n"
+                    printf "\ntoxicants/algorithms/instances.py"
                     pylint --rcfile .pylintrc toxicants/algorithms/instances.py
-                    printf "\ntoxicants/io/arguments.py\n"
+                    printf "\ntoxicants/io/arguments.py"
                     pylint --rcfile .pylintrc toxicants/io/arguments.py
-                    printf "\ntoxicants/io/directories.py\n"
+                    printf "\ntoxicants/io/directories.py"
                     pylint --rcfile .pylintrc toxicants/io/directories.py
-                    printf "\ntoxicants/src/readdata.py\n"
+                    printf "\ntoxicants/src/readdata.py"
                     pylint --rcfile .pylintrc toxicants/src/readdata.py
-                    printf "\ntoxicants/src/readschema.py\n"
+                    printf "\ntoxicants/src/readschema.py"
                     pylint --rcfile .pylintrc toxicants/src/readschema.py
-                    printf "\ntoxicants/main.py\n"
+                    printf "\ntoxicants/main.py"
                     pylint --rcfile .pylintrc toxicants/main.py
 
             -   name: Test with pytest
