@@ -24,47 +24,28 @@ pylint --generate-rcfile > .pylintrc
 
 <br>
 
-### Robustness
+### GitHub Actions & Continuous Integration
 
-**PyTest**
+This is one of a collection of modules that uses GitHub Actions for continuous integration, and delivery.  The actions ``.yml`` 
+[main.yml](./.github/workflows/main.yml) outlines all the validations & tests that must be conducted ``on git push``.  In 
+brief, the tools used - and a few command examples - are
 
-```shell
-python -m pytest tests/src/test_...py 
-```
-
-<br>
-
-**PyTest & Coverage**
-
-```shell
-python -m pytest --cov toxicants/io tests/io
-```
+* **PyTest**<br>&nbsp; &nbsp; &nbsp; ``python -m pytest tests/io/test_directories.py``
+* **PyTest & Coverage**<br>&nbsp; &nbsp; &nbsp; ``python -m pytest --cov toxicants/io tests/io``
+* **Pylint**<br>&nbsp; &nbsp; &nbsp; ``python -m pylint --rcfile .pylintrc toxicants/src/readschema.py``
+* **flake8**<br>&nbsp; &nbsp; &nbsp; ``python -m flake8 --count --select=E9,F63,F7,F82 --show-source --statistics toxicants/src/readschema.
+  py`` (logic)<br>&nbsp; &nbsp; &nbsp; ``python -m flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics 
+  toxicants/src/readschema.py`` (complexity) 
 
 <br>
 
-**Pylint**
-
-```shell
-python -m pylint --rcfile .pylintrc toxicants/src/...py
-```
-
-Note that 
-
+In relation to Pylint, note that 
 ```
 logger.info('\n %s', data.info())
 ```
 is preferred to
 ```
 logger.info('\n{}'.format(data.info()))
-```
-
-<br>
-
-**flake8**
-
-```
-python -m flake8 --count --select=E9,F63,F7,F82 --show-source --statistics toxicants/...py
-python -m flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics toxicants/...py
 ```
 
 <br>
