@@ -31,9 +31,10 @@ def main():
     data = read_data.exc()
     logger.info('\n %s', data.info())
 
-    # Retain valid instances only
+    # Retain valid data instances only
     data = instances.exc(data=data.copy())
     logger.info('\n %s', data.info())
+    logger.info('\n %s', data.head())
 
     # Save
     data.to_csv(path_or_buf=os.path.join(configurations.warehouse, 'pollutants.csv'), header=True, index=False,
