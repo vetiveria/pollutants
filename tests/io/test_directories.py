@@ -1,7 +1,7 @@
 import pytest
 import os
 
-import toxicants.io.directories
+import pollutants.io.directories
 
 
 class TestDirectories:
@@ -11,14 +11,14 @@ class TestDirectories:
         return ['temporary']
 
     def test_create(self, list_of_directories):
-        directories = toxicants.io.directories.Directories()
+        directories = pollutants.io.directories.Directories()
         directories.create(directories_=list_of_directories)
 
         for directory in list_of_directories:
             assert os.path.exists(directory), "The directory {} could not be created".format(directory)
 
     def test_cleanup(self, list_of_directories):
-        directories = toxicants.io.directories.Directories()
+        directories = pollutants.io.directories.Directories()
         directories.cleanup(directories_=list_of_directories)
 
         for directory in list_of_directories:
