@@ -1,9 +1,35 @@
-
 _Develop_<br>
 [![Toxic Releases Project](https://github.com/vetiveria/toxicants/actions/workflows/main.yml/badge.svg?branch=develop)](https://github.com/vetiveria/toxicants/actions/workflows/main.yml)
 
 _Master_<br>
 [![Toxic Releases Project](https://github.com/vetiveria/toxicants/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/vetiveria/toxicants/actions/workflows/main.yml)
+
+<br>
+<br>
+
+Focuses on the [Toxics Release Inventory (TRI)](https://www.epa.gov/enviro/tri-overview) pollutants data; ensuring the
+consistency of its field values. The original copies are stored [within a greyhypotheses repository](https://github.
+com/miscellane/hub/tree/master/data/countries/us/environment/toxins)
+
+<br>
+<br>
+
+### Execution Notes
+
+The input argument of ``main.py`` is a YAML URL. The format of its contents is
+
+````yaml
+dataURL: 'https://.../chemicalsEnvirofacts.csv'
+schemaURL: 'https://.../chemicalsEnvirofacts.json'
+rename: True
+dictionaryOfNames: { 'TRI_CHEM_INFO.TRI_CHEM_ID': 'tri_chem_id', 'TRI_CHEM_INFO.CHEM_NAME': 'chem_name', 
+                     'TRI_CHEM_INFO.ACTIVE_DATE': 'active_date', 'TRI_CHEM_INFO.INACTIVE_DATE': 'inactive_date', 
+                     'TRI_CHEM_INFO.CAAC_IND': 'caac_ind', 'TRI_CHEM_INFO.CARC_IND': 'carc_ind',  ... }
+````
+
+wherein ``dataURL`` is the URL of the data file, ``schemaURL`` is the URL of the correseponding schema file.  The 
+parameter `rename` indicates whether, or not, one or more fields should be renamed, and `dictionaryOfNames` is the corresponding dictionary of 
+fields to be renamed (key) alongside their new names (value).
 
 <br>
 <br>
@@ -39,18 +65,25 @@ the tools used - and a few command examples - are
 <br>
 
 &nbsp; &nbsp; **PyTest**
+
 ```shell
 python -m pytest tests/io/test_directories.py
 ```
+
 &nbsp; &nbsp; **PyTest & Coverage**
+
 ```shell
 python -m pytest --cov toxicants/io tests/io
 ```
+
 &nbsp; &nbsp; **Pylint**
+
 ```shell
 python -m pylint --rcfile .pylintrc toxicants/src/readschema.py
 ```
+
 &nbsp; &nbsp; **flake8**
+
 ```shell
 python -m flake8 --count --select=E9,F63,F7,F82 --show-source 
           --statistics toxicants/src/readschema.py # logic
