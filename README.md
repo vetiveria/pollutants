@@ -1,8 +1,10 @@
 _Develop_<br>
-[![Toxic Releases Project](https://github.com/vetiveria/toxicants/actions/workflows/main.yml/badge.svg?branch=develop)](https://github.com/vetiveria/toxicants/actions/workflows/main.yml)
+[![Toxic Releases Project](https://github.com/vetiveria/pollutants/actions/workflows/main.yml/badge.svg?branch=develop)]
+(https://github.com/vetiveria/pollutants/actions/workflows/main.yml)
 
 _Master_<br>
-[![Toxic Releases Project](https://github.com/vetiveria/toxicants/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/vetiveria/toxicants/actions/workflows/main.yml)
+[![Toxic Releases Project](https://github.com/vetiveria/pollutants/actions/workflows/main.yml/badge.svg?branch=master)]
+(https://github.com/vetiveria/pollutants/actions/workflows/main.yml)
 
 <br>
 <br>
@@ -16,15 +18,16 @@ com/miscellane/hub/tree/master/data/countries/us/environment/toxins)
 
 ### Execution Notes
 
-The input argument of ``main.py`` is a YAML URL. The format of its contents is
+The input argument of ``main.py`` is a YAML URL. The 
+[format of its contents](https://raw.githubusercontent.com/miscellane/hub/develop/data/countries/us/environment/toxins/chemicals/chemicalsEnvirofacts.yaml) is
 
 ````yaml
 dataURL: 'https://.../chemicalsEnvirofacts.csv'
 schemaURL: 'https://.../chemicalsEnvirofacts.json'
 rename: True
-dictionaryOfNames: { 'TRI_CHEM_INFO.TRI_CHEM_ID': 'tri_chem_id', 'TRI_CHEM_INFO.CHEM_NAME': 'chem_name', 
-                     'TRI_CHEM_INFO.ACTIVE_DATE': 'active_date', 'TRI_CHEM_INFO.INACTIVE_DATE': 'inactive_date', 
-                     'TRI_CHEM_INFO.CAAC_IND': 'caac_ind', 'TRI_CHEM_INFO.CARC_IND': 'carc_ind',  ... }
+dictionaryOfNames: {'TRI_CHEM_INFO.TRI_CHEM_ID': 'tri_chem_id', 'TRI_CHEM_INFO.CHEM_NAME': 'chem_name', 
+                    'TRI_CHEM_INFO.ACTIVE_DATE': 'active_date', 'TRI_CHEM_INFO.INACTIVE_DATE': 'inactive_date', 
+                    'TRI_CHEM_INFO.CAAC_IND': 'caac_ind', 'TRI_CHEM_INFO.CARC_IND': 'carc_ind',  ... }
 ````
 
 wherein ``dataURL`` is the URL of the data file, ``schemaURL`` is the URL of the correseponding schema file.  The 
