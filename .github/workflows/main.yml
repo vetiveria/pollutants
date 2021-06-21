@@ -72,7 +72,7 @@ jobs:
                     echo "============================= pylint session starts =============================="
                     printf "\n"
                     printf "\nSECTION: toxicants/algorithms/\n\n"
-                    printf "\ntoxicants/algorithms/instances.py"
+                    printf "toxicants/algorithms/instances.py"
                     pylint --rcfile .pylintrc toxicants/algorithms/instances.py
                     printf "\nSECTION: toxicants/io/\n\n"
                     printf "toxicants/io/arguments.py"
