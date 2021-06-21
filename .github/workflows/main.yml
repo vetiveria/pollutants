@@ -48,7 +48,7 @@ jobs:
 
                     echo "toxicants/algorithms: "
                     printf "instances.py "
-                    flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics toxicants/algorithms/instances.py
+                    python -m flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics toxicants/algorithms/instances.py
 
                     echo "toxicants/io: "
                     printf "arguments.py"
