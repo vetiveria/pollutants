@@ -38,16 +38,16 @@ jobs:
                     echo "toxicants/algorithms ->"
                     printf "instances.py: "
                     flake8 --count --select=E9,F63,F7,F82 --show-source --statistics toxicants/algorithms/instances.py
-                    echo "toxicants/io ->"
+                    echo "\ntoxicants/io ->"
                     printf "arguments.py: "
                     flake8 --count --select=E9,F63,F7,F82 --show-source --statistics toxicants/io/arguments.py
                     printf "directories.py: "
                     flake8 --count --select=E9,F63,F7,F82 --show-source --statistics toxicants/io/directories.py
                     echo "toxicants/src ->"
                     printf "readdata.py: "
-                    flake8 --count --select=E9,F63,F7,F82 --show-source --statistics toxicants/src/readata.py
+                    flake8 --count --select=E9,F63,F7,F82 --show-source --statistics toxicants/src/readdata.py
                     printf "readschema.py: "
-                    flake8 --count --select=E9,F63,F7,F82 --show-source --statistics toxicants/src//readschema.py
+                    flake8 --count --select=E9,F63,F7,F82 --show-source --statistics toxicants/src/readschema.py
                     printf "\n"
                     echo "Complexity issues:"
                     echo "toxicants/algorithms ->"
@@ -70,9 +70,11 @@ jobs:
                     printf "\n"
                     echo "============================= pylint session starts =============================="
                     printf "\n"
-                    pylint --rcfile .pylintrc toxicants/algorithms
-                    pylint --rcfile .pylintrc toxicants/io
-                    pylint --rcfile .pylintrc toxicants/src
+                    pylint --rcfile .pylintrc toxicants/algorithms/instances.py
+                    pylint --rcfile .pylintrc toxicants/io/arguments.py
+                    pylint --rcfile .pylintrc toxicants/io/directories.py
+                    pylint --rcfile .pylintrc toxicants/src/readdata.py
+                    pylint --rcfile .pylintrc toxicants/src/readschema.py
                     pylint --rcfile .pylintrc toxicants/main.py
 
             -   name: Test with pytest
