@@ -45,12 +45,25 @@ jobs:
 
                     printf "\n"
                     echo "Complexity issues:"
-                    echo "toxicants/algorithms"
-                    flake8 --count --exit-zero --max-complexity=10 --max-line-length=120 --statistics toxicants/algorithms
-                    echo "toxicants/io"
-                    flake8 --count --exit-zero --max-complexity=10 --max-line-length=120 --statistics toxicants/io
-                    echo "toxicants/src"
-                    flake8 --count --exit-zero --max-complexity=10 --max-line-length=120 --statistics toxicants/src
+
+                    echo "toxicants/algorithms: "
+                    printf "instances.py "
+                    flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+                    toxicants/algorithms/instances.py
+
+                    echo "toxicants/io: "
+                    printf "arguments.py"
+                    flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics toxicants/io/arguments.py
+                    printf "directories.py"
+                    flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+                    toxicants/io/directories.py
+
+                    echo "toxicants/src: "
+                    printf "readdata.py"
+                    flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics toxicants/src/readdata.py
+                    printf "readschema.py"
+                    flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+                    toxicants/src/readschema.py
 
             -   name: Lint with pylint
                 run: |
