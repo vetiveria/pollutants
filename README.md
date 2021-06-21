@@ -1,3 +1,10 @@
+
+_Develop_<br>
+[![Toxic Releases Project](https://github.com/vetiveria/toxicants/actions/workflows/main.yml/badge.svg?branch=develop)](https://github.com/vetiveria/toxicants/actions/workflows/main.yml)
+
+_Master_<br>
+[![Toxic Releases Project](https://github.com/vetiveria/toxicants/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/vetiveria/toxicants/actions/workflows/main.yml)
+
 <br>
 <br>
 
