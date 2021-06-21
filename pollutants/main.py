@@ -27,13 +27,14 @@ def main():
                                                parameters.rename, parameters.dictionary_of_names))
 
     # Hence, read the data
-    read_data = toxicants.src.readdata.ReadData(specifications=specifications)
+    read_data = pollutants.src.readdata.ReadData(specifications=specifications)
     data = read_data.exc()
     logger.info('\n %s', data.info())
 
-    # Retain valid instances only
+    # Retain valid data instances only
     data = instances.exc(data=data.copy())
     logger.info('\n %s', data.info())
+    logger.info('\n %s', data.head())
 
     # Save
     data.to_csv(path_or_buf=os.path.join(configurations.warehouse, 'pollutants.csv'), header=True, index=False,
@@ -52,14 +53,14 @@ if __name__ == '__main__':
 
     # Libraries
     import config
-    import toxicants.io.arguments
-    import toxicants.io.directories
-    import toxicants.src.readschema
-    import toxicants.src.readdata
-    import toxicants.algorithms.instances
+    import pollutants.io.arguments
+    import pollutants.io.directories
+    import pollutants.src.readschema
+    import pollutants.src.readdata
+    import pollutants.algorithms.instances
 
     # Arguments
-    arguments = toxicants.io.arguments.Arguments()
+    arguments = pollutants.io.arguments.Arguments()
     parser = argparse.ArgumentParser()
     parser.add_argument('elements', type=arguments.url, help='The URL of a YAML of parameters; refer to the '
                                                              'README notes.  The argument parser returns a blob of elements')
@@ -68,8 +69,8 @@ if __name__ == '__main__':
 
     # Hence
     configurations = config.Config()
-    directories = toxicants.io.directories.Directories()
-    read_schema = toxicants.src.readschema.ReadSchema()
-    instances = toxicants.algorithms.instances.Instances()
+    directories = pollutants.io.directories.Directories()
+    read_schema = pollutants.src.readschema.ReadSchema()
+    instances = pollutants.algorithms.instances.Instances()
 
     main()

@@ -18,15 +18,19 @@ class Instances:
     @staticmethod
     def __validate(blob: pd.DataFrame) -> pd.DataFrame:
         """
-        This function validates the contents of the tri_chem_id field.  In brief: each
-            CAS Code must be 10 characters long, and the first chracter must be a number
+        This function validates the contents of the tri_chem_id field.  In brief, each
+
+            CAS Code must be 10 characters long, and the first character must be zero.  If the
+             first character is > 0 -> inapplicable pollutant
+             blob['tri_chem_id'].apply(lambda x: len(x) == 10) & blob['tri_chem_id'].apply(lambda x: x[0].isnumeric())
+
             TRI Code must be 4 characters long, and the first character must be 'N'
 
         :param blob:
         :return:
         """
 
-        cas = blob['tri_chem_id'].apply(lambda x: len(x) == 10) & blob['tri_chem_id'].apply(lambda x: x[0].isnumeric())
+        cas = blob['tri_chem_id'].apply(lambda x: len(x) == 10) & blob['tri_chem_id'].apply(lambda x: x[0] == '0')
         tri = blob['tri_chem_id'].apply(lambda x: len(x) == 4) & blob['tri_chem_id'].apply(lambda x: x[0] == 'N')
 
         return blob.loc[(cas | tri), :]
@@ -46,5 +50,8 @@ class Instances:
 
         # Retrieve the instances that have a valid chemical identification code
         blob = self.__validate(blob=blob.copy())
+
+        # CAS Code length
+        blob.loc[:, 'tri_chem_id'] = blob['tri_chem_id'].apply(lambda x: x[1:] if len(x) == 10 else x)
 
         return blob

@@ -36,34 +36,34 @@ jobs:
                     echo "LOGIC"
                     echo "Issues in relation to logic (F7), syntax (Python E9, Flake F7), mathematical
                     formulae symbols (F63), undefined variable names (F82)"
-                    printf "\ntoxicants/algorithms ->\n"
+                    printf "\npollutants/algorithms ->\n"
                     printf "instances.py: "
-                    flake8 --count --select=E9,F63,F7,F82 --show-source --statistics toxicants/algorithms/instances.py
-                    printf "\ntoxicants/io ->\n"
+                    flake8 --count --select=E9,F63,F7,F82 --show-source --statistics pollutants/algorithms/instances.py
+                    printf "\npollutants/io ->\n"
                     printf "arguments.py: "
-                    flake8 --count --select=E9,F63,F7,F82 --show-source --statistics toxicants/io/arguments.py
+                    flake8 --count --select=E9,F63,F7,F82 --show-source --statistics pollutants/io/arguments.py
                     printf "directories.py: "
-                    flake8 --count --select=E9,F63,F7,F82 --show-source --statistics toxicants/io/directories.py
-                    printf "\ntoxicants/src ->\n"
+                    flake8 --count --select=E9,F63,F7,F82 --show-source --statistics pollutants/io/directories.py
+                    printf "\npollutants/src ->\n"
                     printf "readdata.py: "
-                    flake8 --count --select=E9,F63,F7,F82 --show-source --statistics toxicants/src/readdata.py
+                    flake8 --count --select=E9,F63,F7,F82 --show-source --statistics pollutants/src/readdata.py
                     printf "readschema.py: "
-                    flake8 --count --select=E9,F63,F7,F82 --show-source --statistics toxicants/src/readschema.py
+                    flake8 --count --select=E9,F63,F7,F82 --show-source --statistics pollutants/src/readschema.py
                     printf "\n\n\n"
                     echo "COMPLEXITY"
-                    printf "\ntoxicants/algorithms ->\n"
+                    printf "\npollutants/algorithms ->\n"
                     printf "instances.py: "
-                    python -m flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics toxicants/algorithms/instances.py
-                    printf "\ntoxicants/io ->\n"
+                    python -m flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics pollutants/algorithms/instances.py
+                    printf "\npollutants/io ->\n"
                     printf "arguments.py: "
-                    flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics toxicants/io/arguments.py
+                    flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics pollutants/io/arguments.py
                     printf "directories.py: "
-                    flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics toxicants/io/directories.py
-                    printf "\ntoxicants/src ->\n"
+                    flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics pollutants/io/directories.py
+                    printf "\npollutants/src ->\n"
                     printf "readdata.py: "
-                    flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics toxicants/src/readdata.py
+                    flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics pollutants/src/readdata.py
                     printf "readschema.py: "
-                    flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics toxicants/src/readschema.py
+                    flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics pollutants/src/readschema.py
 
             -   name: Lint with pylint
                 run: |
@@ -71,21 +71,21 @@ jobs:
                     printf "\n"
                     echo "============================= pylint session starts =============================="
                     printf "\n"
-                    printf "\nSECTION: toxicants/algorithms/\n\n"
-                    printf "toxicants/algorithms/instances.py"
-                    pylint --rcfile .pylintrc toxicants/algorithms/instances.py
-                    printf "\nSECTION: toxicants/io/\n\n"
-                    printf "toxicants/io/arguments.py"
-                    pylint --rcfile .pylintrc toxicants/io/arguments.py
-                    printf "toxicants/io/directories.py"
-                    pylint --rcfile .pylintrc toxicants/io/directories.py
-                    printf "\nSECTION: toxicants/src/\n\n"
-                    printf "toxicants/src/readdata.py"
-                    pylint --rcfile .pylintrc toxicants/src/readdata.py
-                    printf "toxicants/src/readschema.py"
-                    pylint --rcfile .pylintrc toxicants/src/readschema.py
-                    printf "\nSECTION: toxicants/main.py"
-                    pylint --rcfile .pylintrc toxicants/main.py
+                    printf "\nSECTION: pollutants/algorithms/\n\n"
+                    printf "pollutants/algorithms/instances.py"
+                    pylint --rcfile .pylintrc pollutants/algorithms/instances.py
+                    printf "\nSECTION: pollutants/io/\n\n"
+                    printf "pollutants/io/arguments.py"
+                    pylint --rcfile .pylintrc pollutants/io/arguments.py
+                    printf "pollutants/io/directories.py"
+                    pylint --rcfile .pylintrc pollutants/io/directories.py
+                    printf "\nSECTION: pollutants/src/\n\n"
+                    printf "pollutants/src/readdata.py"
+                    pylint --rcfile .pylintrc pollutants/src/readdata.py
+                    printf "pollutants/src/readschema.py"
+                    pylint --rcfile .pylintrc pollutants/src/readschema.py
+                    printf "\nSECTION: pollutants/main.py"
+                    pylint --rcfile .pylintrc pollutants/main.py
 
             -   name: Test with pytest
                 run: |
@@ -96,4 +96,4 @@ jobs:
                 run: |
                     pip install coverage
                     pip install pytest-cov
-                    pytest --cov toxicants/io tests/io
+                    pytest --cov pollutants/io tests/io
