@@ -1,6 +1,6 @@
 import pytest
 
-import toxicants.io.arguments
+import pollutants.io.arguments
 
 
 class TestArguments:
@@ -11,7 +11,7 @@ class TestArguments:
 
     def test_url(self, urlstring):
 
-        arguments = toxicants.io.arguments.Arguments()
+        arguments = pollutants.io.arguments.Arguments()
 
         req = arguments.url(urlstring=urlstring)
         assert req.status_code == 200, "The string is  a valid URL string"
