@@ -34,11 +34,18 @@ corresponding dictionary of fields to be renamed (key) alongside their new names
 
 ## Development Notes
 
-The developments notes.
+Thus far.
 
 <br>
 
-### Requirements
+### Environment
+
+Refer to the [spots development environment](https://github.com/vetiveria/spots#development-environment), it outlines the
+creation & usage of the environment `environment`, which is used by this repository also.
+
+<br>
+
+**Requirements**
 
 ```shell
 pip freeze -r docs/filter.txt > requirements.txt
@@ -46,12 +53,13 @@ pip freeze -r docs/filter.txt > requirements.txt
 
 <br>
 
-### Style
+**Style**
 
 ```shell
 pylint --generate-rcfile > .pylintrc
 ```
 
+<br>
 <br>
 
 ### GitHub Actions & Continuous Integration
